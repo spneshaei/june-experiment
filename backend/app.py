@@ -31,11 +31,11 @@ app = Flask(__name__, static_url_path='/static')
 CORS(app)
 
 def load_data_from_file(file_name):
-    with open(file_name + "-writingtheory.json", "r") as f:
+    with open(file_name + "-juneexperiment.json", "r") as f:
         return json.loads(f.read(), object_hook = lambda d: SimpleNamespace(**d))
 
 def save_data_to_file(file_name, data):
-    with open(file_name + "-writingtheory.json", "w") as f:
+    with open(file_name + "-juneexperiment.json", "w") as f:
         f.write(json.dumps(data, default=lambda o: o.__dict__, indent=4))
 
 def save_error_log(error):
@@ -56,7 +56,7 @@ def getIdeationFromGPT(review):
             {"role": "user", "content": "Give me another idea."},
             {"role": "assistant", "content": "The feedback may question how well the app integrates with various booking platforms and providers to offer a seamless experience for users."},
             {"role": "user", "content": "Give me another idea that I have not used yet. This is the review so far:" + str(review)},
-            {"role": "system", "content": "All responses must be in German now."},
+            {"role": "system", "content": "All suggestions must be in German now."},
         ]
     )
     result = msg['choices'][0]['message']['content']
@@ -76,7 +76,7 @@ def getEvaluationFromGPT(review):
             {"role": "user", "content": "Do the same but with a new suggestion."},
             {"role": "assistant", "content": "Try to rephrase your feedback in a more measured way. Talk about the case instead of how you personally feel about it."},
             {"role": "user", "content": "Do the same but with a new suggestion. This is the review so far:" + str(review)},
-            {"role": "system", "content": "All responses must be in German now."},
+            {"role": "system", "content": "All suggestions must be in German now."},
         ]
     )
     return msg['choices'][0]['message']['content']
@@ -95,7 +95,7 @@ def getGoalSettingFromGPT(review):
         {"role": "user", "content": "Do the same but with a new writing subgoal."},
         {"role": "assistant", "content": "Use simple language to get your point across."},
         {"role": "user", "content": "Do the same but with a new writing subgoal. This is the review so far:" + str(review)},
-        {"role": "system", "content": "All responses must be in German now."},
+        {"role": "system", "content": "All suggestions must be in German now."},
         ]
     )
     return msg['choices'][0]['message']['content']
@@ -113,7 +113,7 @@ def getOrganizingFromGPT(review):
             {"role": "user", "content": "Do the same but with a new suggestion on how to order the ideas in the text."},
             {"role": "assistant", "content": "Go from general to more specific ideas over the course of the paragraph."},
             {"role": "user", "content": "Do the same but with a new suggestion on how to order the ideas in the text. This is the review so far:" + str(review)},
-            {"role": "system", "content": "All responses must be in German now."},
+            {"role": "system", "content": "All suggestions must be in German now."},
         ]
     )
     return msg['choices'][0]['message']['content']

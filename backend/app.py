@@ -47,7 +47,7 @@ def getIdeationFromGPT(review):
     global case
     msg = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        max_tokens=40,
+        max_tokens=60,
         temperature=0,
         messages=[
             {"role": "system", "content": "You provide one example idea per response. Give only the idea without any preamble or comment. Be as brief as possible."},
@@ -66,7 +66,7 @@ def getEvaluationFromGPT(review):
     global case
     msg = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        max_tokens=40,
+        max_tokens=60,
         temperature=0,
         # top_p=0,
         messages=[
@@ -85,7 +85,7 @@ def getGoalSettingFromGPT(review):
     global case
     msg = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    max_tokens=40,
+    max_tokens=60,
     temperature=0,
     # top_p=0,
     messages=[
@@ -103,7 +103,7 @@ def getGoalSettingFromGPT(review):
 def getOrganizingFromGPT(review):
     msg = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    max_tokens=40,
+    max_tokens=60,
     temperature=0,
     # top_p=0,
     messages=[

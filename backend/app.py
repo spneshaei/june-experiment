@@ -7,6 +7,9 @@ import threading
 import time
 import openai
 
+import os
+os.chdir('/code/backend/')
+
 case = """Jeder weiß, wie herausfordernd die Organisation eines Ski-Ausflugs mit Freunden sein kann. Die Planung wird oft schon beim ersten Versuch der Terminfindung verworfen. Um diesen Organisationsprozess zu vereinfachen und die belastenden Aspekte eines Ausflugs zu beseitigen, haben wir Alp-Us ins Leben gerufen. Diese App ist die große Neuheit der letzten Jahre im Bereich des Wintersport-Tourismus.
 
 Mit Alp-Us können Sie alle wichtigen Aspekte Ihres Skiurlaubs zentral über eine einzige App planen und organisieren. Sie ist das perfekte Tool, um effizient und schnell den idealen Ausflug für Wintersportbegeisterte zu gestalten. Egal ob Sie einen Ausflug für die Familie, eine Gruppe von Freunden oder im Rahmen eines Firmenevents planen.
@@ -233,4 +236,4 @@ def submit():
     return jsonify({"success": True})
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 5001, debug = True)
+    app.run(host = '0.0.0.0', port = 7888, debug = True)
